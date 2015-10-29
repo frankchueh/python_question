@@ -1,15 +1,13 @@
 with open("file.txt",'r') as f:
-	first, second, third = 0, 0, 0
-	for line in f:
-		num = int(line)
-		if num > first:
-			first, second, third = num, first, second
-		elif num > second:
-			second, third = num, second
-		elif num > third:
-			third = num
-
-	print first
-	print second
-	print third
 	
+	nums = [int(line) for line in f]
+	list_num = []
+	for n in range(1,5):
+		max_num = 0
+		for num in nums:
+			if num > max_num:
+				if num not in list_num:
+					max_num = num
+		print max_num
+		list_num.insert(n,max_num)
+
